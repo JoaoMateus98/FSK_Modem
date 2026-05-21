@@ -414,6 +414,26 @@
               <FileType>8</FileType>
               <FilePath>.\Src\UART.cpp</FilePath>
             </File>
+            <File>
+              <FileName>transmitter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\transmitter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>utils.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Src\utils.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>transmitter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Include\transmitter.h</FilePath>
+            </File>
+            <File>
+              <FileName>utils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Include\utils.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

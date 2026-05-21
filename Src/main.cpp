@@ -1,23 +1,22 @@
 #include "PWM.h"
 #include "UART.h"
-
-void Init_PWM();
-void setPWMFrequency(uint32_t freq);
-void Init_UART();
-void Enable_UART();
+#include "transmitter.h"
 
 int main(void) {
-    Init_PWM();
     Init_UART();
     Enable_UART();
+    Transmitter tx;
 
-    while (true) { echo_PUTTY(); }
-}
+    uint8_t outFrame[MAX_FRAME];
 
-void echo_PUTTY() {
-    if (!(UART0->FR & (1 << 4)))  // if RX FIFO not empty
-    {
-        char c = UART0->DR;  // read byte
-        UART0->DR = c;       // echo back to TX
+    while (true) {
+        if (!(UART0->FR & (1 << 4))) {
+            char c = UART0->DR;
+            UART0->DR = c;
+            uint8_t len = tx.feed(c, outFrame);
+            if (len > 0) {
+                // frame ready, feed to parser
+            }
+        }
     }
 }
