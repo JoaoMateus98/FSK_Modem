@@ -1,0 +1,32 @@
+# Keil uVision generated
+Listings/
+Objects/
+*.uvguix.*
+*.uvoptx
+*.uvprojx.bak
+*.dep
+*.map
+*.lnp
+*.hex
+*.axf
+*.htm
+*.crf
+*.d
+*.o
+*.lst
+*.iex
+
+# Debug
+EventRecorderStub.scvd
+
+RTE/
+!RTE/
+RTE/*
+!RTE/Device/
+RTE/Device/*
+!RTE/Device/TM4C123GH6PM/
+RTE/Device/TM4C123GH6PM/*
+!RTE/Device/TM4C123GH6PM/system_TM4C123.c
+
+# VS Code
+.vscode/
