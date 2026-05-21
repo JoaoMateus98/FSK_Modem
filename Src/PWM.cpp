@@ -1,4 +1,4 @@
-#include "TM4C123GH6PM.h"
+#include "PWM.h"
 
 void Init_PWM()
 {
