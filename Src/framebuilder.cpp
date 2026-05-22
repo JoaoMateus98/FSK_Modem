@@ -1,14 +1,13 @@
-#include "transmitter.h"
+#include "framebuilder.h"
 
-
-uint8_t Transmitter::feed(uint8_t in, uint8_t *outFrame) {
-    if (in == 0x0D) return transmit(outFrame);
+uint8_t FrameBuilder::feed(uint8_t in, uint8_t *outFrame) {
+    if (in == 0x0D) return flush(outFrame);
     if (bufferLen < MAX_PAYLOAD) buffer[bufferLen++] = in;
     return 0;
 }
 
-uint8_t Transmitter::transmit(uint8_t *outFrame) {
-    buildFrame();
+uint8_t FrameBuilder::flush(uint8_t *outFrame) {
+    assemble();
     for (int i = 0; i < frameLen; i++) outFrame[i] = frame[i];
     uint8_t len = frameLen;
     bufferLen = 0;
@@ -16,7 +15,7 @@ uint8_t Transmitter::transmit(uint8_t *outFrame) {
     return len;
 }
 
-void Transmitter::buildFrame() {
+void FrameBuilder::assemble() {
     uint8_t crc = calculateCRC8(buffer, bufferLen);
     frame[0] = 0xAA;
     frame[1] = bufferLen;
