@@ -4,9 +4,6 @@
 #include "common.h"
 #include "utils.h"
 
-#define MAX_PAYLOAD 64
-#define MAX_FRAME MAX_PAYLOAD + 3
-
 class FrameBuilder {
     uint8_t buffer[MAX_PAYLOAD];
     uint8_t bufferLen = 0;
